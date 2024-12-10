@@ -6,6 +6,7 @@ joblib
 scikit-learn
 pandas
 pymysql
+psycopg-binary==3.2.2
 python-multipart
 pyngrok
 
