@@ -10,3 +10,10 @@ class Prediction(Base):
     file_name = Column(String, nullable=False)
     prediction = Column(Float, nullable=False)
     created_at = Column(TIMESTAMP, nullable=False) 
+
+class Item(Base):
+    __tablename__ = "items"
+
+    id = Column(Integer, primary_key=True, index=True)
+    name = Column(String, nullable=False)
+    description = Column(String, nullable=False)
