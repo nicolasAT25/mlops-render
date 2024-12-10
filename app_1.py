@@ -15,7 +15,7 @@ import pytz
 
 # Configurar la base de datos
 # SQLALCHEMY_DATABASE_URL = "postgresql://user:password@postgresserver/db"
-SQLALCHEMY_DATABASE_URL = "postgresql://root:wVfztbtVUcHmAbPovfHbnFbIAXMgNHvT@junction.proxy.rlwy.net:48943/railway"
+SQLALCHEMY_DATABASE_URL = "postgresql://house_prices_4jh3_user:epdLH1uB1ds7iMVbL7KqAX1uxy1Yn8cX@dpg-ctcb1a2j1k6c73fdk7k0-a/house_prices_4jh3"
 
 engine = create_engine(SQLALCHEMY_DATABASE_URL)
 metadata = MetaData()
