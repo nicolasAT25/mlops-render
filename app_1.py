@@ -9,7 +9,7 @@ from io import StringIO
 import pandas as pd
 from joblib import load
 
-from models import Prediction, Base
+from .models import Prediction, Base
 from datetime import datetime
 import pytz
 
