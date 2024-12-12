@@ -9,7 +9,7 @@ from io import StringIO
 import pandas as pd
 from joblib import load
 
-from .models import Prediction, Base
+from .models import Prediction, Item, Base
 from datetime import datetime
 import pytz
 
@@ -26,9 +26,7 @@ items = Table("items", metadata, autoload_with=engine)
 # Configurar la sesión de SQLAlchemy
 SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)
 
-
-# Inicializar la aplicación FastAPI
-app = FastAPI()
+models.Base.metadata.create_all(bind=engine) 
 
 def get_db():
     db = SessionLocal()
@@ -36,6 +34,10 @@ def get_db():
         yield db
     finally:
         db.close()
+
+
+# Inicializar la aplicación FastAPI
+app = FastAPI()
 
 @app.get("/health", status_code=200, include_in_schema=False)
 def health_check(db=Depends(get_db)):
