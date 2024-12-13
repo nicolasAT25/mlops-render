@@ -142,7 +142,7 @@ async def predict_bancknote(file: UploadFile = File(...), db: Session = Depends(
     
     predictions = classifier.predict(df)
 
-    colombia_tz = pytz.timezone('America/Colombia')
+    colombia_tz = pytz.timezone('America/Bogota')
     now = datetime.now(colombia_tz)
  
     for i, prediction in enumerate(predictions):
