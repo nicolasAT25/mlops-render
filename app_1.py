@@ -53,7 +53,7 @@ class Item(BaseModel):
     description: str = None
 
     class Config:
-        orm_mode = True
+        from_attributes = True
 
 class ItemCreate(BaseModel):
     name: str
@@ -142,13 +142,14 @@ async def predict_bancknote(file: UploadFile = File(...), db: Session = Depends(
     
     predictions = classifier.predict(df)
 
-    lima_tz = pytz.timezone('America/Lima')
-    now = datetime.now(lima_tz)
+    colombia_tz = pytz.timezone('America/Colombia')
+    now = datetime.now(colombia_tz)
  
     for i, prediction in enumerate(predictions):
         prediction_entry = Prediction(
             file_name=file.filename,
-            prediction=prediction,
+            prediction=str(prediction),
+            # prediction=prediction,
             created_at=now   
         )
         db.add(prediction_entry)
