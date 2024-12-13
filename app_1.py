@@ -26,7 +26,7 @@ items = Table("items", metadata, autoload_with=engine)
 # Configurar la sesión de SQLAlchemy
 SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)
 
-models.Base.metadata.create_all(bind=engine) 
+# models.Base.metadata.create_all(bind=engine)
 
 def get_db():
     db = SessionLocal()
